@@ -25,6 +25,17 @@ macro @Aselect!
     return nothing
 end
 
+"""
+    @Asubset(filepath::String, condition)
+macro to select cetain vars from the dataset based on key
+# Examples
+```julia-repl
+
+A = @Asubset A :pr .>  0.001 
+#or
+A = @Asubset A :month .== 12
+```
+"""
 macro @Asubset
 
 end 
