@@ -2,7 +2,7 @@
 
 Julia package for high-level loading and manipulating multidimensional labeled arrays. Mostly designed for working with Earth System data cubes...but should hopefully be extensible to other scientific fields.
 
-The package essentially tries to combine the functionality of the python package [xarray](https://docs.xarray.dev/en/stable/) with the reduction/transformation macros from [DataFramesMeta.jl](https://juliadata.github.io/DataFramesMeta.jl/stable/). In contrast to [AxisArrays.jl](https://github.com/JuliaArrays/AxisArrays.jl) and [YAXArrays.jl](https://github.com/JuliaDataCubes/YAXArrays.jl), this package focuses on loading **existing** data cubes (preferably on the cloud) and getting to training/analysis stacks as reproducibly as possible with the use of macros and [Chain.jl](https://github.com/jkrumbiegel/Chain.jl).
+The package essentially tries to combine the functionality of the python package [xarray](https://docs.xarray.dev/en/stable/) with the reduction/transformation macros from [DataFramesMeta.jl](https://juliadata.github.io/DataFramesMeta.jl/stable/). In contrast to [AxisArrays.jl](https://github.com/JuliaArrays/AxisArrays.jl) and [YAXArrays.jl](https://github.com/JuliaDataCubes/YAXArrays.jl), this package focuses on loading **existing** data cubes (preferably on the cloud) and getting to training/analysis stacks as cleanly as possible with the use of macros and [Chain.jl](https://github.com/jkrumbiegel/Chain.jl).
 
 Current support for zarr and NetCDFs files. Macro naming mirror DataFramesMeta.jl with a preceding A e.g. @subset => @Asubset.
 
@@ -11,6 +11,13 @@ Current support for zarr and NetCDFs files. Macro naming mirror DataFramesMeta.j
 * integrate support for [Dagger.jl](https://github.com/JuliaParallel/Dagger.jl) for *out-of-core* operations
 * [Unitful.jl](https://github.com/PainterQubits/Unitful.jl) integration
 
+## Installation
+
+You can install MacroArrays by typing
+
+```julia
+julia> ] add MacroArrays
+```
 
 ## Usage example
 
