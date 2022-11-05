@@ -12,7 +12,8 @@ using UnicodePlots
 include(joinpath("constructors", "constructors.jl"))
 include(joinpath("functions", "load.jl"))
 include(joinpath("functions", "manipulate.jl"))
-export MacroArray, @zload, @nload, @Aselect, @Aselect!, @Asubset, @Asubset!, @Atransform, @Atransform!, @Aby, @Aby!, 
+export MacroArray, @zload, @nload, @Aselect, @Aselect!, @Asubset, @Asubset!,
+    @Atransform, @Atransform!, @Aby, @Aby!, @Aresample, @Aresample!
 
 end
 
