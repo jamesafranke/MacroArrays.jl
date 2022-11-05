@@ -15,6 +15,7 @@ module MacroArrays
         pressure::Float64
         time::DateTime
         values::Float32
+        valuesb::Float64
     end
 
     function displayshape(A::MacroArray)
