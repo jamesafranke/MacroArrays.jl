@@ -4,7 +4,6 @@
     @with allows vars and dims to be called as symbols
 
 """
-
 function exec(df, p::Pair)
     cols = first(p)
     fun = last(p)
@@ -121,4 +120,10 @@ end
 macro Aresample!()
 
     return nothing
+end
+
+
+macro toDataFrame(A::MacroArray)
+
+    return A
 end

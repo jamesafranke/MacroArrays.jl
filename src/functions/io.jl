@@ -28,12 +28,12 @@ Lazy read NetCDF
 A = @nread "some-file-path"
 ```
 """
+
 macro nread(filepath::String) 
     A = ncread( filepath )
     displayshape(A)
     return A::MacroArray
 end
-
 
 """
     @nreadmany(list[filepath::String])

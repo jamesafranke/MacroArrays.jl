@@ -17,6 +17,7 @@ You can install MacroArrays by typing
 
 ```julia-repl
 julia> ] add MacroArrays
+
 ```
 
 ## Usage example
@@ -27,7 +28,7 @@ julia> ] add MacroArrays
 
 using MacroArrays
 
-A = @readz "gs://cmip6/CMIP6/ScenarioMIP/NOAA-GFDL/GFDL-CM4/ssp585/r1i1p1f1/day/pr/gr1/v20180701/"
+A = @zread "gs://cmip6/CMIP6/ScenarioMIP/NOAA-GFDL/GFDL-CM4/ssp585/r1i1p1f1/day/pr/gr1/v20180701/"
 
 ```
 
@@ -56,11 +57,11 @@ end
 
 ```
 
-...pipe to training device
+...pipe to training device. Should convert to ::cuArray ok.
 
 ```julia
 using CUDA, Flux
-
+...
 A_anom |> gpu
 
 ```
