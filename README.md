@@ -15,7 +15,7 @@ Current support for zarr and NetCDFs files. Macro naming mirror DataFramesMeta.j
 
 You can install MacroArrays by typing
 
-```julia
+```julia-repl
 julia> ] add MacroArrays
 ```
 

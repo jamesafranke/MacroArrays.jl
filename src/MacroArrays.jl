@@ -11,11 +11,11 @@ using MacroTools
 #using Unitful
 
 include(joinpath("constructors", "constructors.jl"))
-include(joinpath("functions", "load.jl"))
+include(joinpath("functions", "io.jl"))
 include(joinpath("functions", "manipulate.jl"))
 
 export MacroArray,
-     @zload, @nload, 
+     @zread, @nread, @nreadmany, @tozarr,
      @Aselect, @Aselect!, 
      @Asubset, @Asubset!,
      @Atransform, @Atransform!, 

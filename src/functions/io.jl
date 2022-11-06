@@ -14,7 +14,7 @@ Lazy read zarr in from store or folder
 A = @zread "some-file-path"
 ```
 """
-macro @zread(filepath)
+macro zread(filepath::String)
     A = zopen( filepath, consolidated=true )
     displayshape(A)
     return A::MacroArray
@@ -28,8 +28,36 @@ Lazy read NetCDF
 A = @nread "some-file-path"
 ```
 """
-macro @nread(filepath) 
+macro nread(filepath::String) 
     A = ncread( filepath )
     displayshape(A)
     return A::MacroArray
+end
+
+
+"""
+    @nreadmany(list[filepath::String])
+Lazy read a folder of netcdfs
+# Examples
+```julia-repl
+A = @nreadmany "some-folder-path"
+```
+"""
+macro nreadmany(filepath::String, concat_dim::Symbol=:time) 
+    A = ncread( filepath )
+    displayshape(A)
+    return A::MacroArray
+end
+
+"""
+    @tozarr(filepath::String)
+save MacroArray object as zarr
+# Examples
+```julia-repl
+@tozarr A "some-file-path"
+```
+"""
+macro tozarr(A::MacroArray, filepath::String) 
+    tozarr( filepath )
+    return nothing
 end
