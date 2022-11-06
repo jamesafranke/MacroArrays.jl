@@ -13,6 +13,7 @@ Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 Zarr = "0a941bbe-ad1d-11e8-39d9-ab76183a1d99"
 
 [compat]
+Chain = "0.5"
 Zarr = "0.7"
 DataFrames = "1"
 Unitful = "1"
