@@ -1,7 +1,7 @@
 module MacroArrays
 
 using Zarr
-using NetCDF
+using NCDatasets
 using Dates
 using DataFrames
 using Chain

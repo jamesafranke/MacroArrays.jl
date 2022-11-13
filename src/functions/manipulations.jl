@@ -2,7 +2,6 @@
 
 """
     @with allows vars and dims to be called as symbols
-
 """
 function exec(df, p::Pair)
     cols = first(p)
@@ -37,7 +36,7 @@ A = @Aselect A :pr :tas
 ```
 """
 
-macro Aselect(A::MacroArray, key::key, kwargs...)
+macro Aselect(A::MacroArray, col_name::key, kwargs...)
     new = A[]
     return new
 end 
@@ -54,7 +53,7 @@ end
 
 """
     @Asubset filepath::String condition
-macro to select cetain vars from the dataset based on key
+macro to reduced the dataset based on key and condition. conditions are automatically '&&' toghether
 # Examples
 ```julia-repl
 
@@ -65,7 +64,6 @@ A = @Asubset A :month .== 12
 """
 function subset_helper(x, args...)
     x, exprs, outer_flags, kw = get_df_args_kwargs(x, args...; wrap_byrow = false)
-
     t = (fun_to_vec(ex; no_dest=true, outer_flags=outer_flags) for ex in exprs)
     quote
         $subset($x, $(t...); (skipmissing = true,)..., $(kw...))
@@ -80,14 +78,12 @@ function where_helper(x, args...)
     end
 end
 
-
 macro Asubset(x, args...)
     esc(subset_helper(x, args...))
 end
 
 function rsubset_helper(x, args...)
     x, exprs, outer_flags, kw = get_df_args_kwargs(x, args...; wrap_byrow = true)
-
     t = (fun_to_vec(ex; no_dest=true, outer_flags=outer_flags) for ex in exprs)
     quote
         $subset($x, $(t...); (skipmissing = true,)..., $(kw...))
